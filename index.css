@@ -50,19 +50,38 @@
     }
     
     .side-panel.right {
-        border-radius: 0 5px 5px 0;
+        border-radius: 5px 0 0 5px;
     }
     
     /* Main panel where controls and display reside */
     #main-panel {
         background: linear-gradient(135deg, #4a4a4a, #6a6a6a);
-        width: 90%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         border-radius: 10px;
+    }
+    
+    #Beats {
+        background-color: var(--text); /* Use existing color variable */
+        color: white; /* Button text color */
+        font-family: var(--font-secondary);
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Button shadow */
+        transition: all 0.3s ease-in-out;
+    }
+    
+    #stop-btn {
+        background-color: #c91611;
+        color:aliceblue;
+        cursor: pointer;
     }
 
     #display {
@@ -77,49 +96,45 @@
     
     .btn-group {
         width: 60%;
-        display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-top: 2%;
+        display: flex;
+        gap: 20px;
     }
     
     .btn-group > * {
-        background: var(--secondary);
+        background: linear-gradient(145deg, #ffc631, #e6b02b);
         width: 80px;
         height: 80px;
-        border-radius: 50;
         border: solid var(--primary) 2px;
-        padding: 1.5%;
         font-family: var(--font-primary);
         font-weight: bold;
         color: white;
         text-align: center;
         line-height: 80px;
         cursor: pointer;
-        box-shadow: 0px -2px 10px 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4),
+        -2px -2px 5px rgba(25, 255, 255, 0.2);
+        transition: all ease 0.2s;
     }
     
     .btn-group > *:hover {
-        background: var(--secondary);
-        color: var(--primary);
-        border: solid var(--primary) 2px;
-        transform: translateY(-3px);
-        transition: all ease 0.5s;
-        box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 6px 6px 12x rgba(0, 0, 0, 0.5),
+        -3px -3px 5px rgba(25, 255, 255, 0.3);
+        transform: translateY(-2px);
     }
     
     #display {
         background: var(--dark);
         width: 95%;
-        height: 50%;
+        height: 75%;
         border: solid var(--secondary) 3px;
         padding: 2%;
     }
     
     #beat-name {
-        font-family: var(--font-primary);
-        font-size: 75px;
-        color: white;
+        font-family: 'ITC Serif Gothic', sans-serif;
+        font-size: 45px;
+        color: orange;
         text-align: center;
     }
     
@@ -134,7 +149,7 @@
     .drum-pad {
         background: var(--light);
         width: 10%;
-        height: 100%;
+        height: 50%;
         border: solid var(--primary) 3px;
         border-bottom: 0;
         font-family: var(--font-secondary);
@@ -156,7 +171,7 @@
     .drum-pad-clicked {
         background: white;
         width: 10%;
-        height: 100%;
+        height: 50%;
         border: solid var(--primary) 3px;
         border-bottom: 0;
         padding-top: 1%;
