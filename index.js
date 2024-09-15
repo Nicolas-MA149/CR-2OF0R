@@ -340,3 +340,56 @@ libThree.onclick = () => {
     selectedLib = libraryThree;
     createPads(libraryThree);
 };
+
+const patterns = {
+    pattern1: [
+    { sound: libraryOne[4].sound, name: 'Bass Drum', delay: 0},
+    { sound: libraryOne[5].sound, name: 'High Hat (open)', delay: 0},
+    { sound: libraryOne[5].sound, name: 'High Hat (open)', delay: 1000},
+    { sound: libraryOne[5].sound, name: 'High Hat (open)', delay: 2000},
+    { sound: libraryOne[2].sound, name: 'Snare', delay: 3000},
+    { sound: libraryOne[5].sound, name: 'High Hat (open)', delay: 3000}
+]
+};
+
+let activeTimeouts = [];
+let activeInterval = null; // To keep track of the loop
+
+// Function to play a preset pattern with looping
+const playPattern = (pattern, loop = true) => {
+    clearTimeouts(); // Clear any running patterns
+
+    // Function to play the pattern once
+    const playOnce = () => {
+        pattern.forEach(({ sound, name, delay }) => {
+            const timeoutId = setTimeout(() => {
+                playSound(sound, name);
+            }, delay);
+            activeTimeouts.push(timeoutId); // Store timeout IDs
+        });
+    };
+
+    // Calculate total duration of the pattern
+    const totalDuration = 4000; // Adding 500ms buffer
+
+    // Play the pattern once initially
+    playOnce();
+
+    // If loop is true, use setInterval to replay the pattern
+    if (loop) {
+        activeInterval = setInterval(() => {
+            playOnce(); // Replay the pattern
+        }, totalDuration);
+    }
+};
+
+// Clear timeouts and intervals (for stop functionality)
+const clearTimeouts = () => {
+    activeTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+    activeTimeouts = [];
+    clearInterval(activeInterval); // Clear the looping interval
+    activeInterval = null;
+};
+
+// Example stop button
+document.getElementById('stop-btn').onclick = clearTimeouts;
