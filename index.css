@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-primary: 'Times New Roman', serif;
+    --font-secondary: 'Nunito', sans-serif;
+    --primary: #232426;
+    --secondary: #ffc631;
+    --light: #2fb270;
+    --dark: #5e9cd9;
+    --text: #c91611;
+}
+
+
+    .container {
+        background: var(--primary);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+    }
+    
+    #drum-machine {
+        width: 75%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-shadow: 0px 0px 25px 8px rgba(0, 0, 0, 0.51);
+    }
+    
+    .side-panel {
+        width: 5%;
+        height: 100%;
+        background: url('./wood-texture.jpg') no-repeat center center;
+        background-size: cover;
+    }
+    
+    .side-panel.left {
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .side-panel.right {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    /* Main panel where controls and display reside */
+    #main-panel {
+        background: linear-gradient(135deg, #4a4a4a, #6a6a6a);
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    #display {
+        background: var(--dark);
+        width: 80%;
+        height: 15%;
+        margin-top: 5%;
+        border: solid var(--secondary) 3px;
+        padding: 2%;
+        text-align: center;
+    }
+    
+    .btn-group {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2%;
+    }
+    
+    .btn-group > * {
+        background: var(--secondary);
+        width: 80px;
+        height: 80px;
+        border-radius: 50;
+        border: solid var(--primary) 2px;
+        padding: 1.5%;
+        font-family: var(--font-primary);
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        line-height: 80px;
+        cursor: pointer;
+        box-shadow: 0px -2px 10px 5px rgba(0, 0, 0, 0.4);
+    }
+    
+    .btn-group > *:hover {
+        background: var(--secondary);
+        color: var(--primary);
+        border: solid var(--primary) 2px;
+        transform: translateY(-3px);
+        transition: all ease 0.5s;
+        box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    #display {
+        background: var(--dark);
+        width: 95%;
+        height: 50%;
+        border: solid var(--secondary) 3px;
+        padding: 2%;
+    }
+    
+    #beat-name {
+        font-family: var(--font-primary);
+        font-size: 75px;
+        color: white;
+        text-align: center;
+    }
+    
+    #pad-container {
+        display: flex;
+        width: 100%;
+        height: 25%;
+        margin-bottom: 2%;
+        justify-content: space-around;
+    }
+    
+    .drum-pad {
+        background: var(--light);
+        width: 10%;
+        height: 100%;
+        border: solid var(--primary) 3px;
+        border-bottom: 0;
+        font-family: var(--font-secondary);
+        font-weight: bolder;
+        color: var(--primary);
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .drum-pad-hover {
+        background: var(--text);
+        padding-top: 1%;
+        color: var(--light);
+        font-size: 5vh;
+        box-shadow: 0px -2px 20px 5px rgba(0, 0, 0, 0.4);
+        transition: all linear 0.3s;
+    }
+    
+    .drum-pad-clicked {
+        background: white;
+        width: 10%;
+        height: 100%;
+        border: solid var(--primary) 3px;
+        border-bottom: 0;
+        padding-top: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        font-family: var(--font-secondary);
+        font-weight: bolder;
+        color: var(--dark);
+        font-size: 5vh;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    @media (max-width: 690px) {
+        #drum-machine {
+            width: 100%;
+            overflow: hidden;
+        }
+    
+        #beat-name {
+            font-size: 3rem;
+        }
+    
+        .btn-group > * {
+            margin: 5px;
+        }
+    }    
